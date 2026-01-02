@@ -1,4 +1,4 @@
-# google-dorks
+# google-dorks (Update Jan 2026)
 [![License](https://img.shields.io/badge/license-MIT-_red.svg)](https://opensource.org/licenses/MIT)
 ![contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
 <img src="https://img.shields.io/github/stars/Proviesec/google-dorks?style=social"> <img src="https://img.shields.io/github/forks/Proviesec/google-dorks?style=social">
