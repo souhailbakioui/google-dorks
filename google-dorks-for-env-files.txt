@@ -1,0 +1,6 @@
+filetype:env "AWS_SECRET_ACCESS_KEY"
+filetype:env "AWS_ACCESS_KEY_ID"
+filetype:env "DB_PASSWORD"
+filetype:env "DATABASE_URL"
+filetype:env "REDIS_URL"
+filetype:env "JWT_SECRET"
