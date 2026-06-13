@@ -1,0 +1,18 @@
+inurl:9200 intitle:"200 OK" "elasticsearch"
+inurl:":9200/_cat/indices"
+inurl:":9200/_cluster/health"
+inurl:":9200/_nodes" intitle:"nodes"
+inurl:"/_search?pretty=true"
+intitle:"index of" "elasticsearch.yml"
+filetype:yml "elasticsearch" "network.host: 0.0.0.0"
+filetype:yml "elasticsearch.yml" "xpack.security.enabled: false"
+site:github.com filename:elasticsearch.yml "password"
+site:github.com "ELASTICSEARCH_PASSWORD" ext:env
+ext:env "ELASTICSEARCH_URL" "password"
+ext:env "ELASTIC_PASSWORD"
+inurl:":9200" "indices" "shards" "docs"
+inurl:"kibana" inurl:":5601" intitle:"Elastic"
+intitle:"Kibana" inurl:"/app/kibana" -demo
+inurl:":9200/_cat/nodes?v"
+inurl:"elastic:changeme@"
+filetype:log "elasticsearch" "password"

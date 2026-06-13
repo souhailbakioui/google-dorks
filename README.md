@@ -1,191 +1,226 @@
-# google-dorks (Update Jan 2026)
-[![License](https://img.shields.io/badge/license-MIT-_red.svg)](https://opensource.org/licenses/MIT)
-![contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
-<img src="https://img.shields.io/github/stars/Proviesec/google-dorks?style=social"> <img src="https://img.shields.io/github/forks/Proviesec/google-dorks?style=social">
-<a href="https://proviesec.org/">
-    <img src="https://avatars.githubusercontent.com/u/92156402?s=400&u=7fe0dbb9085a37818ee8c2b061432a9a69cbff42&v=4" alt="Proviesec logo" title="Proviesec" align="right" height="60" />
-</a>
-[![Twitter](https://img.shields.io/twitter/follow/proviesec?label=Follow)](https://twitter.com/proviesec)
-<a href="https://www.buymeacoffee.com/proviesec" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
-<a href="https://patreon.com/proviesec"><img src="https://user-images.githubusercontent.com/6010786/178968010-4d47859d-ef52-4d0e-85eb-549654f9ad65.jpg" alt="Buy Me A Coffee" height="80"></a>
-Read this, my Medium Blog Space:👩‍💻<a href="https://proviesec.medium.com/"><b>Proviesec Security Medium Articles - read it</b></a>
+# 🔍 Google Dorks — Security Research Database
 
-Table of Contents
-------------
-* [Introduction](#introduction)
-* [My love google dork](#my-love-google-dork)
-* [Search filters](#search-filters)
-* [Operators](#operators)
-   * [Search Term](#search-term)
-   * [OR](#or)
-* [Ideas](#ideas)
-* [Links](#links)
-* [Example](#example)
-* [Preventing GOOGLE DORKS](#preventin-google-dorks)
+[![License](https://img.shields.io/badge/license-MIT-red.svg)](https://opensource.org/licenses/MIT)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](CONTRIBUTING.md)
+[![Stars](https://img.shields.io/github/stars/souhailbakioui/google-dorks?style=social)](https://github.com/souhailbakioui/google-dorks/stargazers)
+[![Forks](https://img.shields.io/github/forks/souhailbakioui/google-dorks?style=social)](https://github.com/souhailbakioui/google-dorks/forks)
+[![Forked from](https://img.shields.io/badge/forked%20from-Proviesec%2Fgoogle--dorks-blue?style=flat)](https://github.com/Proviesec/google-dorks)
 
-# Introduction 
+> A structured, community-maintained database of Google Dorks for defensive
+> security research, bug bounty programs, and authorized penetration testing.
+> Originally compiled by [Proviesec](https://github.com/Proviesec).
 
-:star: Star us on GitHub — it motivates a lot! :star:
+---
 
-**If you have any google dork, just create a PullRequest or wrtie me on twitter.**  [![Twitter](https://img.shields.io/twitter/follow/proviesec?label=Follow)](https://twitter.com/proviesec) 
+## ⚠️ Legal Disclaimer
 
-**My medium article about Google Dorks** [How to use google dorks](https://medium.com/@proviesec/google-dork-the-best-one-and-how-do-you-find-bugs-with-it-689c69804b81)  
+This repository is intended **exclusively** for:
+- Authorized penetration testing
+- Bug bounty programs within defined scope
+- Defensive auditing of systems you own or have explicit permission to test
 
+**Using these dorks against systems without authorization is illegal.**
+The maintainers accept no responsibility for misuse. See [SECURITY.md](SECURITY.md).
 
-# My love google dork
-```
-intext:"index of" "parent directory"
-```
+---
 
-## Search filters
+## 📁 Repository Structure
 
-| Filter          | Description                                        | Example                              |
-| :-------------- |:---------------------------------------------------| :------------------------------------|
-| allintext      | Searches for occurrences of all specified keywords. | `allintext:"keyword"` |
-| intext      | Searches for the occurrence of keywords at once or consecutively. | `intext:"keyword"` |
-| intitle      | Searches for occurrences of keywords in the title all or one. | `intitle:"keyword"` |
-| allintitle      | Searches for all occurrences of keywords at once. | `allintitle:"keyword"` |
-| inurl      | Searches for a URL that matches one of the keywords. | `inurl:"keyword"` |
-| allinurl      | Searches for a URL that matches all the keywords in the query. | `allinurl:"keyword"` |
-| site      | Searches specifically for that particular website and lists all results for that website. | `site:"www.github.com"` |
-| filetype      | Searches for a specific file type named in the query. | `filetype:"pdf"` |
-| link      | Searches for external links to pages. | `link:"keyword"` |
-| numrange      | Used to find specific numbers in your search. | `numrange:33-43` |
-| before/after      | Used to search within a specified date range. | `filetype:pdf & (before:2021-01-01 after:2021-05-01)` |
-| allinanchor (and also inanchor)      | This shows the websites that the keywords refer to in links, in order of most links. | `inanchor:rat` |
-| allinpostauthor (and also inpostauthor)      | Exclusively for the blog search, blog posts written by specific people are picked out. | `allinpostauthor:"keyword"` |
-| related      | List web pages that are "similar" to a given web page. | `related:www.github.com` |
-| cache      | Displays the version of the web page that Google has in its cache. | `cache:www.github.com` |
+```txt
+google-dorks/
 
-## Operators
-#### Search Term
-
-This operator searches only for the exact term inside the quotation marks. You can use this for example if the term you are looking for is ambiguous and could easily be confused with something else, or if you don't get enough relevant results. 
-
-Here is an example:
-
-```
-"Admin Loginpage"
-```
-#### OR
-This operator searches for a specific search term OR another term.
-
-```
-site:instagram.com | site:github.com
+├── cloud/              # AWS, GCP, Azure, Firebase, Kubernetes
+├── credentials/        # API keys, .env files, git secrets, JS secrets
+├── services/           # Stripe, Slack, OpenAI, Twilio, SendGrid, Discord
+├── devops/             # Docker, Terraform, Jenkins, GitHub Actions, CI/CD
+├── vulnerabilities/    # SQLi, XSS, open redirect, Swagger
+├── monitoring/         # Grafana, Kibana, Elasticsearch
+├── cms/                # WordPress, Joomla, Magento, Typo3
+├── web-server/         # Nginx, Apache, login panels, frameworks
+├── recon/              # Bug bounty, company recon, stats
+├── files/              # Excel, PDF, presentation, backup leaks
+├── finding-username-passwords/
+├── technology/
+├── all-google-dorks.txt      # Master list — all dorks combined
+├── best-google-dorks.txt     # Curated top picks
+└── google-dorks-best-log.txt # Changelog
 ```
 
-#### AND
-This operator searches for a specific search term and another term.
 
-```
-site:github.com & site:twitter.com
-```
+---
 
-#### Operators combinaison
-This operator combines search terms 
-```
-(site:instagram.com | site:twitter.com) (intext:"admin")
-(site:instagram.com | site:twitter.com) & intext:"admin"
-```
+## 🔎 What is a Google Dork?
 
-#### Include results
+A Google Dork is an advanced search query using Google's built-in operators
+to surface information that is publicly indexed but not intended to be
+easily discoverable — such as exposed credentials, open admin panels,
+misconfigured servers, and leaked files.
 
-This will order results by the number of occurrence of the keyword.
+---
 
-```
-site:twitter.com +site:twitter.*
-```
+## 🧰 Core Search Operators
 
-#### Exclude results
+| Operator | Description | Example |
+|----------|-------------|---------|
+| `intext:` | Search for keywords in page body | `intext:"db_password"` |
+| `intitle:` | Search in page title | `intitle:"index of"` |
+| `inurl:` | Search within URLs | `inurl:"/admin/login"` |
+| `site:` | Restrict to a domain | `site:*.gov` |
+| `filetype:` | Filter by file extension | `filetype:env` |
+| `ext:` | Alias for filetype | `ext:sql` |
+| `before:` / `after:` | Date range filter | `after:2024-01-01` |
+| `"..."` | Exact phrase match | `"secret_key"` |
+| `-` | Exclude term | `-demo -test` |
+| `OR` / `\|` | Either term | `site:s3.amazonaws.com \| site:storage.googleapis.com` |
 
-```
-site:twitter.* -site:twitter.com
-```
+---
 
-### Better Results (Subdomains)
-```
-site:*.site.com
+## 📂 Category Index
 
-site:*.*.site.com
+### ☁️ Cloud
+| File | Description |
+|------|-------------|
+| `cloud/google-dorks-for-aws-s3.txt` | Exposed S3 buckets and IAM credentials |
+| `cloud/google-dorks-for-azure.txt` | Azure storage and config leaks |
+| `cloud/google-dorks-for-gcp.txt` | Google Cloud Platform misconfigs |
+| `cloud/google-dorks-for-firebase.txt` | Firebase database exposure |
+| `cloud/google-dorks-for-kubernetes.txt` | K8s dashboards and kubeconfig leaks |
+| `cloud/google-dorks-for-cloud-platforms.txt` | General cloud platform patterns |
 
-site:*.*.*.site.com
-```
-#### Synonyms
+### 🔑 Credentials
+| File | Description |
+|------|-------------|
+| `credentials/google-dorks-for-env-files.txt` | Exposed .env files |
+| `credentials/google-dorks-for-api-keys.txt` | Generic API key patterns |
+| `credentials/google-dorks-for-js-secrets.txt` | Secrets hardcoded in JS |
+| `credentials/google-dorks-for-git-files.txt` | .git directory and config exposure |
+| `credentials/google-dorks-for-database-files.txt` | SQL dumps and DB credentials |
 
-```
-~set
-```
+### 🛠️ DevOps
+| File | Description |
+|------|-------------|
+| `devops/google-dorks-for-docker.txt` | Docker Compose and registry exposure |
+| `devops/google-dorks-for-terraform.txt` | tfstate files and cloud secrets |
+| `devops/google-dorks-for-jenkins.txt` | Jenkins dashboards and Script Console |
+| `devops/google-dorks-for-ci-cd.txt` | General CI/CD pipeline leaks |
+| `devops/google-dorks-for-github-actions.txt` | GitHub Actions secrets and workflows |
+| `devops/google-dorks-for-backups.txt` | Exposed backup files and archives |
 
-#### Glob pattern (*)
+### 🌐 Services
+| File | Description |
+|------|-------------|
+| `services/google-dorks-for-openai.txt` | OpenAI API key exposure |
+| `services/google-dorks-for-anthropic.txt` | Anthropic API key exposure |
+| `services/google-dorks-for-stripe.txt` | Stripe secret key leaks |
+| `services/google-dorks-for-sendgrid.txt` | SendGrid API key exposure |
+| `services/google-dorks-for-mailgun.txt` | Mailgun credential leaks |
+| `services/google-dorks-for-twilio.txt` | Twilio auth token exposure |
+| `services/google-dorks-for-slack.txt` | Slack webhook and token leaks |
+| `services/google-dorks-for-discord.txt` | Discord token and webhook leaks |
+| `services/google-dorks-for-mongodb.txt` | MongoDB connection string exposure |
 
-```
-site:*.com
-```
+### 🐛 Vulnerabilities
+| File | Description |
+|------|-------------|
+| `vulnerabilities/google-dorks-for-sql-injection.txt` | SQLi entry points |
+| `vulnerabilities/google-dorks-for-xss.txt` | XSS vulnerable parameters |
+| `vulnerabilities/google-dorks-for-open-redirect.txt` | Open redirect patterns |
+| `vulnerabilities/google-dorks-for-swagger.txt` | Exposed Swagger/OpenAPI docs |
 
-# Ideas
-- [x] Git google dorks
-- [x] phpmyadmin google dorks
-- [x] phpinfo google dorks
-- [x] log file google dorks
-- [x] google dorks for excel files
-- [ ] Google Dorks for presentations 
-- [ ] best google dorks reports 
-- [x] finding aws secrets with google dorks
-- [ ] js secrets with google dorks
-- [ ] CMS google dorks
-  - [x] Wordpress
-  - [x] Typo3
-  - [x] Magento
-  - [x] Joomla
-  - [ ] Drupal
-  - [ ] Shopify
-- [x] Admin google dorks
-- [x] Monitoring pages - google dorks
-- [ ] Google Dorks - Github page
+### 📊 Monitoring
+| File | Description |
+|------|-------------|
+| `monitoring/google-dorks-for-grafana.txt` | Exposed Grafana dashboards |
+| `monitoring/google-dorks-for-kibana.txt` | Open Kibana instances |
+| `monitoring/google-dorks-for-elasticsearch.txt` | Unauthenticated ES clusters |
+| `monitoring/google-dorks-for-monitoring.txt` | General monitoring panel exposure |
 
+### 🖥️ CMS
+| File | Description |
+|------|-------------|
+| `cms/google-dorks-for-wordpress.txt` | wp-config, user enum, debug logs |
+| `cms/google-dorks-for-joomla.txt` | Joomla config and admin panels |
+| `cms/google-dorks-for-magento.txt` | Magento admin and config leaks |
+| `cms/google-dorks-for-typo3.txt` | Typo3 installation exposure |
 
-# Links
+### 🌍 Web Server
+| File | Description |
+|------|-------------|
+| `web-server/google-dorks-for-webserver.txt` | Web server misconfigs |
+| `web-server/google-dorks-for-login.txt` | Exposed login panels |
+| `web-server/google-dorks-for-conf.txt` | Config file exposure |
+| `web-server/google-dorks-for-frameworks.txt` | Framework-specific patterns |
 
-- exploit-db.com
-- nvd.nist.gov
-- cxsecurity.com
-- vulnerability-lab.com 
+### 🕵️ Recon
+| File | Description |
+|------|-------------|
+| `recon/google-dorks-for-bug-bounty-programs.txt` | Bug bounty scope recon |
+| `recon/google-dorks-for-companys.txt` | Company asset discovery |
+| `recon/google-dorks-for-stats.txt` | Exposed statistics and analytics |
+| `recon/google-dorks-for-wikipedia.txt` | Wikipedia-based recon patterns |
 
-# Writeups
+### 📎 Files
+| File | Description |
+|------|-------------|
+| `files/google-dorks-for-excel-files.txt` | Exposed Excel spreadsheets |
+| `files/google-dorks-for-presentations.txt` | Leaked presentation files |
 
-https://infosecwriteups.com/my-first-reflected-xss-bug-bounty-google-dork-xxx-92ac1180e0d0
-https://dewangpanchal98.medium.com/microsoft-bug-bounty-writeup-5ee4a7264dbf
+---
 
-# Example 
+## 🛡️ Preventing Google Dorking Against Your Site
 
-![image](https://user-images.githubusercontent.com/6010786/152770177-537fbfa2-235e-4951-a885-12c6a90c40a5.png)
+1. **Audit yourself first** — run these dorks against your own domain regularly
+2. **Use `robots.txt`** — block sensitive paths from crawlers
+3. **Set `X-Robots-Tag: noindex`** headers on admin/staging environments
+4. **Remove sensitive files** from public web roots entirely
+5. **Use Google Search Console** to de-index accidentally exposed pages
+6. **Never commit secrets** to public repositories
 
-## Preventing GOOGLE DORKS
+Example `robots.txt` protection:
 
-Encoding/encrypting sensitive data such as usernames, passwords and so forth.
-Run inquiries against your own site to check whether you can locate any sensitive data. On the off chance that you discover sensitive information, you can remove it from search results by utilizing Google Search Console.
-Protect sensitive content by utilizing a robots.txt document situated in your root-level site catalog. 
-Utilizing robots.txt helps prevent Google from indexing our site, but it can also show an attacker where sensitive data might be located.
-User-agent: * 
-Disallow: / 
+User-agent: *
 
-You can also block specific directories to be excepted from web crawling. 
-If you have the /phpinfo site and you need to protect it, just place this code inside:
+Disallow: /admin/
 
-User-agent: *   
-Disallow: /phpinfo/ 
+Disallow: /backup/
 
+Disallow: /.env
 
-Restrict access to specific files:
+Disallow: /wp-config.php
 
-User-agent: *   
-Disallow: /member/info.html 
+---
 
-Restrict access to dynamic URLs that contain ? symbol:
+## 🤝 Contributing
 
-User-agent: *   
-Disallow: /*?  
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to add new dorks,
+fix existing ones, or propose new categories.
 
+---
 
-# Disclaimer: DONT BE A JERK!
-Needless to mention, please use this tool very very carefully. The authors won't be responsible for any consequences.
+## 🔗 Resources
+
+- [Exploit-DB Google Hacking Database](https://www.exploit-db.com/google-hacking-database)
+- [OSINT Framework](https://osintframework.com)
+- [Google Advanced Search](https://www.google.com/advanced_search)
+- [Proviesec Medium Articles](https://proviesec.medium.com/)
+
+---
+
+## 📜 License
+
+MIT License — see [LICENSE](LICENSE) for full text.
+
+## 👥 Credits & Attribution
+
+Original database compiled and maintained by
+[Proviesec](https://github.com/Proviesec) —
+[github.com/Proviesec/google-dorks](https://github.com/Proviesec/google-dorks).
+
+This repository is a **community fork** that extends the original with:
+- Reorganized folder structure by threat category
+- New dork files: Docker, Terraform, Jenkins, Elasticsearch, WordPress, API Keys
+- Added `CONTRIBUTING.md`, `SECURITY.md`, and `LICENSE`
+- Improved `README.md` with full category index and operator reference
+
+All original content remains the work of Proviesec and contributors.
+New additions by [souhailbakioui](https://github.com/souhailbakioui).
